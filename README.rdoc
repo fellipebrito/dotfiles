@@ -13,4 +13,4 @@ These are config files to set up a system the way I like it.
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   Run :BundleInstall in vim.
 
-== This repo is inspired in r00k's repo
+This repo is inspired in r00k's repo
