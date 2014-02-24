@@ -1,0 +1,16 @@
+=== Fellipe Brito's dot files
+
+These are config files to set up a system the way I like it.
+
+== Installation
+
+  git clone git://bitbucket.org/fellipebrito/dotfile ~/.dotfiles
+  cd ~/.dotfiles
+  rake install
+
+  Vim plugins are managed through vundle. You'll need to install vundle to get them.
+
+  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  Run :BundleInstall in vim.
+
+== This repo is inspired in r00k's repo
