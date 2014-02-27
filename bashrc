@@ -66,3 +66,11 @@ PS1="[\w]\$ "
 #source ~/.bash_profile
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
+
+function fuck() {
+  killall -9 $2 2>/dev/null;
+  if [ $? = 0 ]
+  then
+    echo ; echo " (╯°□°）╯︵  $(echo "$2"|toilet -f term -F rotate)"; echo
+  fi
+}
