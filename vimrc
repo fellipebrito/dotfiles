@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " My bundles
 Bundle 'ervandew/supertab'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
@@ -108,7 +109,10 @@ map <Leader>w <esc>:w<cr>
 " CommandT
 map <Leader>tf :CommandTFlush<CR>:CommandT<CR>
 map <Leader>tb :CommandTBuffer<CR>
-map <Leader>y :!rspec %<cr>
+
+" Tests and StyleGuides
+map <Leader>cc :!cucumber --drb %<CR>
+map <Leader>y :!rspec --drv %<cr>
 map <Leader>rub :!rubocop %<cr>
 map <Leader>auto :!rubocop -a %<cr>
 
