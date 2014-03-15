@@ -26,6 +26,7 @@ su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s
 
 # install vundle
 # TODO: BundleInstall must run in a screen
+su -c 'mkdir -p ~/.vim/bundle' vagrant
 su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qall' vagrant
 
 # configure app env
