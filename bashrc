@@ -24,6 +24,12 @@ if [ -f /etc/bash_completion ]; then
    . /etc/bash_completion
 fi
 
+# fixing stdin: is not a tty’ error
+# based on http://sachinpradeeplinux.wordpress.com/2012/09/28/stdin-is-not-a-tty-error/
+if `tty -s`; then
+   mesg n
+fi
+
 # Include external files
 # source ~/.bashrc_includes/*
 
@@ -45,8 +51,8 @@ alias gs='git status'
 alias gps='git push'
 alias gpu='git pull'
 alias gsu='git pull && git submodule init && git submodule update --remote'
-alias l='ls -lFh --color'
-alias la='ls -laFh --color'
+alias l='ls -lFhG'
+alias la='ls -laFhG'
 alias rub='rubocop'
 alias rubsimple='rubocop --format simple'
 alias tr='tree -P "*.rb" -I "assets|views|mailers" app'
