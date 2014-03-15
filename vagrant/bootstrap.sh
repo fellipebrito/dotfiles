@@ -34,9 +34,9 @@ sudo apt-get install -y -q \
   wget
 
 
-# # clone dotfiles
-# su -c 'git clone git@github.com:fellipebrito/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
-#
+# clone dotfiles
+su -c 'git clone https://github.com/fellipebrito/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && rake install;' vagrant
+
 # # remove vagrant default ruby and install rvm
 # su -c 'sudo rm -rf /opt/vagrant_ruby/ && \curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.0.0;' vagrant
 #

@@ -27,7 +27,7 @@ task :install do
     end
   end
 
-  system %Q{mkdir ~/.tmp}
+  system %Q{mkdir -p ~/.tmp}
 end
 
 def replace_file(file)
