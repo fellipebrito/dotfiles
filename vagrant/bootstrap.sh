@@ -3,18 +3,25 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 
 # install basic unix packages
+sudo add-apt-repository ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get install -y -q \
-  git \
+  bash-completion \
   build-essential \
-  vim \
   curl \
-  rake \
-  tree \
-  mysql-server \
+  git \
   libmysqlclient-dev \
+  libcurl3-dev \
+  libxslt-dev \
+  libxml2-dev
+  mysql-server \
   nodejs \
+  nginx \
+  rake \
   screen \
+  tree \
+  tmux \
+  vim \
   wget
 
 
@@ -31,5 +38,9 @@ su -c 'git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vi
 
 # configure app env
 su -c 'sudo mkdir /var/www && sudo chmod 777 -R /var/www' vagrant
+su -c 'ln -s /var/www ~/www' vagrant
+
+# pssh / portly
+su -c 'gem install pssh' vagrant
 
 exit
