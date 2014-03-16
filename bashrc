@@ -24,12 +24,6 @@ if [ -f /etc/bash_completion ]; then
    . /etc/bash_completion
 fi
 
-# fixing stdin: is not a tty’ error
-# based on http://sachinpradeeplinux.wordpress.com/2012/09/28/stdin-is-not-a-tty-error/
-if `tty -s`; then
-   mesg n
-fi
-
 # Include external files
 # source ~/.bashrc_includes/*
 
