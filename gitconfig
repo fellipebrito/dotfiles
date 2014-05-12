@@ -1,6 +1,6 @@
 [user]
-  name = Fellipe Brito
-  email = fellipe@ladodireito.com
+	name = Fellipe Brito
+	email = fellipe@ladodireito.com
 
 [alias]
     st = status
@@ -30,3 +30,10 @@
     whitespace = red reverse
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = /Users/brito/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
