@@ -15,3 +15,4 @@ doc/
 Gemfile.lock
 coverage
 /public/uploads/*
+!/public/uploads/.gitkeep
