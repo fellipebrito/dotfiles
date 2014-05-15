@@ -54,6 +54,10 @@ set backspace=indent,eol,start          " make that backspace key work the way i
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 
+" Paste Toggle
+nnoremap <F8> :set invpaste paste?<CR>
+set pastetoggle=<F8>
+
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
