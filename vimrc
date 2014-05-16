@@ -101,8 +101,12 @@ map <Leader>q :q<CR>
 " my frequently edited files
 map <Leader>vim :sp ~/.dotfiles/vimrc<cr>
 
-" Git Status
+" Git
 map <Leader>gs :Gstatus<CR>
+map <Leader>gb :Gblame<CR>
+map <Leader>gc :Gcommit<CR>
+map <Leader>gp :!git push<CR>
+map <Leader>gd :Gdiff<CR>
 
 " remove all spaces left behind
 map <Leader><Space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
