@@ -105,16 +105,17 @@ map <Leader>vim :sp ~/.dotfiles/vimrc<cr>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gc :Gcommit<CR>
-map <Leader>gp :!git push<CR>
+map <Leader>gp <esc>:!git push<CR>
 map <Leader>gd :Gdiff<CR>
 
 " remove all spaces left behind
 map <Leader><Space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <Leader>w <esc>:w<cr>
 
-" CommandT
-map <Leader>tf :CommandTFlush<CR>:CommandT<CR>
-map <Leader>tb :CommandTBuffer<CR>
+" rspec textexpander
+map <Leader>ihp iit { should have_property : }<esc>hi
+map <Leader>ivp iit { should validate_presence_of : }<esc>hi
+map <Leader>ibt iit { should belong_to : }<esc>hi
 
 " Tests and StyleGuides
 map <Leader>cc :!cucumber --drb %<CR>
