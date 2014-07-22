@@ -4,7 +4,7 @@ These are config files to set up a system the way I like it.
 
 == Installation
 
-  git clone git://bitbucket.org/fellipebrito/dotfile ~/.dotfiles
+  git clone https://github.com/fellipebrito/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
   rake install
 
