@@ -126,6 +126,10 @@ map <Leader>auto :!rubocop -a %<cr>
 " Dash / Documentation
 map <Leader>D :!open dash://
 
+" Matrix / Cat
+map <Leader>mm :Matrix<cr>
+map <Leader>nc :Nyancat2<cr>
+
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'

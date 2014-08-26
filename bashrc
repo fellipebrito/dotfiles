@@ -1,3 +1,4 @@
+export RACK_ENV="development"
 
 # colors
 [ -z "$TMUX" ] && export TERM=xterm-256color
@@ -36,9 +37,11 @@ export GREP_OPTIONS='--color=auto'
 # alias
 alias bi='bundle install'
 alias c='cd'
+alias cpcov='rm -rf /vagrant/coverage/;cp -R coverage/ /vagrant/coverage'
 alias ..='cd ..'
 alias g='git '
 alias gad='g add .'
+alias gbl='g branch -a'
 alias gcm='g commit -m'
 alias gd='g diff'
 alias gfa='g fetch --all'
@@ -52,7 +55,10 @@ alias pg='psql -h localhost -U root -W '
 alias rub='rubocop'
 alias rubsimple='rubocop --format simple'
 alias rsdoc='rspec spec --format documentation --order default'
-alias tr='tree -P "*.rb" -I "assets|views|mailers" app'
+alias rspec='rspec;cpcov'
+alias cucumber='cucumber;cpcov'
+alias test='rspec;cucumber'
+alias tr='tree -P "*.rb" -I "assets|views|mailers|coverage" app'
 alias u='cd ~'
 alias ta='tmux attach-session -t '
 alias tls='tmux ls'
@@ -66,8 +72,10 @@ alias www='cd ~/www'
 
 ### Default ps1 with colors:
 ### user@host path$
-PS1="\[\033[1;30m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-PS1="[\w]\$ "
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+# PS1="$(tput setaf 2)[~\W$(tput setaf 7)\]\$(__git_ps1)$(tput setaf 2)]$ "
+PS1='[~\W\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
 
 #source ~/.bash_profile
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
