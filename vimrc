@@ -51,7 +51,7 @@ set tw=0
 set visualbell t_vb=                    " turn off error beep/flash
 set novisualbell                        " turn off visual bell
 set backspace=indent,eol,start          " make that backspace key work the way it should
-set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 " Paste Toggle
@@ -112,16 +112,11 @@ map <Leader>gd :Gdiff<CR>
 map <Leader><Space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <Leader>w <esc>:w<cr>
 
-" rspec textexpander
-map <Leader>ihp iit { should have_property : }<esc>hi
-map <Leader>ivp iit { should validate_presence_of : }<esc>hi
-map <Leader>ibt iit { should belong_to : }<esc>hi
-
 " Tests and StyleGuides
-map <Leader>cc :!cucumber --drb %<CR>
-map <Leader>y :!rspec --drv %<cr>
 map <Leader>rub :!rubocop %<cr>
 map <Leader>auto :!rubocop -a %<cr>
+map <Leader>t :w<cr>:call RunCurrentTest()<CR>
+map <Leader>T :w<cr>:call RunCurrentLineInTest()<CR>
 
 " Dash / Documentation
 map <Leader>D :!open dash://
@@ -140,14 +135,48 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:ctrlp_user_command = 'find %s -type f'
 
-function! RSpecFile()
-  execute("!clear && rspec --color --format documentation " . expand("%p"))
-endfunction
-map <leader>y :call RSpecFile() <CR>
-command! RSpecFile call RSpecFile()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Test-running stuff - Thanks r00
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RunCurrentTest()
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
 
-function! RSpecCurrent()
-  execute("!clear && rspec --color --format documentation " . expand("%p") . ":" . line("."))
+    if match(expand('%'), '\.feature$') != -1
+      call SetTestRunner("cucumber")
+      exec '!clear &&' g:bjo_test_runner g:bjo_test_file
+    elseif match(expand('%'), '_spec\.rb$') != -1
+      call SetTestRunner("rspec --color --format documentation")
+      exec '!clear &&' g:bjo_test_runner g:bjo_test_file
+    endif
+  else
+    " Those var are set the first time you run your tests
+    " once you already ran your tests, you can move to the
+    " code file, and keep running the tests that are already
+    " saved in the session
+    exec '!clear && ' g:bjo_test_runner g:bjo_test_file
+  endif
 endfunction
-map <leader>Y :call RSpecCurrent() <CR>
-command! RSpecCurrent call RSpecCurrent()
+
+function! SetTestRunner(runner)
+  let g:bjo_test_runner=a:runner
+endfunction
+
+function! RunCurrentLineInTest()
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+    call SetTestFileWithLine()
+  end
+
+  exec "!clear && rspec --color --format documentation " g:bjo_test_file . ":" . g:bjo_test_file_line
+endfunction
+
+function! SetTestFile()
+  let g:bjo_test_file=@%
+endfunction
+
+function! SetTestFileWithLine()
+  let g:bjo_test_file=@%
+  let g:bjo_test_file_line=line(".")
+endfunction
