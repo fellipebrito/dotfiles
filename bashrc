@@ -55,7 +55,8 @@ alias pg='psql -h localhost -U root -W '
 alias rub='rubocop'
 alias rubsimple='rubocop --format simple'
 alias rsdoc='rspec spec --format documentation --order default'
-alias rspec='rspec;cpcov'
+alias rshtml='rspec --format h > /vagrant/output.html'
+# alias rspec='rspec;cpcov'
 alias cucumber='cucumber;cpcov'
 alias test='rspec;cucumber'
 alias tr='tree -P "*.rb" -I "assets|views|mailers|coverage" app'
@@ -75,7 +76,7 @@ alias www='cd ~/www'
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 # PS1="$(tput setaf 2)[~\W$(tput setaf 7)\]\$(__git_ps1)$(tput setaf 2)]$ "
-PS1='[~\W\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
+PS1='[\W/\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
 
 #source ~/.bash_profile
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
