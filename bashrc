@@ -39,6 +39,7 @@ alias bi='bundle install'
 alias c='cd'
 alias cpcov='rm -rf /vagrant/coverage/;cp -R coverage/ /vagrant/coverage'
 alias ..='cd ..'
+alias fuck='sudo $(history -p \!\!)'
 alias g='git '
 alias gad='g add .'
 alias gbl='g branch -a'
@@ -82,10 +83,11 @@ PS1='[\W/\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
 
-function fuck() {
-  killall -9 $2 2>/dev/null;
+
+function hasta_la_vista() {
+  sudo killall -9 $1 2>/dev/null;
   if [ $? = 0 ]
   then
-    echo ; echo " (╯°□°）╯︵  $(echo "$2"|toilet -f term -F rotate)"; echo
+    echo ; echo " (╯°□°）╯︵  $(echo "$1"|toilet -f term -F rotate)"; echo
   fi
 }
