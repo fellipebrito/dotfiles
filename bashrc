@@ -91,3 +91,5 @@ function hasta_la_vista() {
     echo ; echo " (╯°□°）╯︵  $(echo "$1"|toilet -f term -F rotate)"; echo
   fi
 }
+
+curl http://cowsay.me/
