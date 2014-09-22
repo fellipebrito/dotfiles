@@ -120,6 +120,7 @@ map <Leader>T :w<cr>:call RunCurrentLineInTest()<CR>
 
 " Dash / Documentation
 map <Leader>D :!open dash://
+map <Leader>mk :set syntax=markdown<CR>
 
 " Matrix / Cat
 map <Leader>mm :Matrix<cr>

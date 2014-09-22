@@ -1,4 +1,6 @@
 export RACK_ENV="development"
+export MYSQL_USER=root
+export MYSQL_PASSWORD=root
 
 # colors
 [ -z "$TMUX" ] && export TERM=xterm-256color
@@ -43,6 +45,7 @@ alias fuck='sudo $(history -p \!\!)'
 alias g='git '
 alias gad='g add .'
 alias gbl='g branch -a'
+alias gbc='g branch --merged | grep -v master | xargs git branch -d && git remote prune origin'
 alias gcm='g commit -m'
 alias gd='g diff'
 alias gfa='g fetch --all'
@@ -93,3 +96,6 @@ function hasta_la_vista() {
 }
 
 curl http://cowsay.me/
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
