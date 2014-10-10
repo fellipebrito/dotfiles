@@ -1,3 +1,7 @@
+[user]
+  name = Fellipe Brito
+  email = fellipe@ladodireito.com
+
 [alias]
     st = status
     ci = commit
