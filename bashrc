@@ -37,7 +37,7 @@ fi
 export GREP_OPTIONS='--color=auto'
 
 # alias
-alias bi='bundle install'
+alias bi='rm Gemfile.lock;bundle install'
 alias c='cd'
 alias cpcov='rm -rf /vagrant/coverage/;cp -R coverage/ /vagrant/coverage'
 alias ..='cd ..'
@@ -68,6 +68,7 @@ alias u='cd ~'
 alias ta='tmux attach-session -t '
 alias tls='tmux ls'
 alias tn='tmux new -s '
+alias todo='vim /vagrant/TODO'
 alias vim='/usr/bin/vim'
 alias vrl='vagrant reload'
 alias vpro='vagrant reload --provision'
