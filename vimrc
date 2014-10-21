@@ -22,6 +22,7 @@ Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'kien/ctrlp.vim'
+Bundle 'slim-template/vim-slim'
 
 " ========================================================================
 " set vim config stuff
