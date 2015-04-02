@@ -23,6 +23,14 @@ Bundle 'koron/nyancat-vim'
 Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'kien/ctrlp.vim'
 Bundle 'slim-template/vim-slim'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-leiningen'
+Bundle 'tpope/vim-projectionist'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fireplace'
+
+
 
 " ========================================================================
 " set vim config stuff
@@ -102,6 +110,9 @@ map <Leader>q :q<CR>
 " my frequently edited files
 map <Leader>vim :sp ~/.dotfiles/vimrc<cr>
 
+" clojure koans
+map <Leader>cc :!lein koan run<cr>
+
 " Git
 map <Leader>gs :Gstatus<CR>
 map <Leader>gb :Gblame<CR>
@@ -127,6 +138,9 @@ map <Leader>mk :set syntax=markdown<CR>
 map <Leader>mm :Matrix<cr>
 map <Leader>nc :Nyancat2<cr>
 
+" Search
+map <Leader>bs :!browser_search.sh <C-r>"<CR>
+
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -141,7 +155,7 @@ let g:ctrlp_user_command = 'find %s -type f'
 " Test-running stuff - Thanks r00
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|.clj\|_spec.rb\)$') != -1
   if in_test_file
     call SetTestFile()
 
@@ -151,6 +165,8 @@ function! RunCurrentTest()
     elseif match(expand('%'), '_spec\.rb$') != -1
       call SetTestRunner("rspec --color --format documentation")
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
+    elseif match(expand('%'), '\.clj$') != -1
+      exec '!clear && lein test'
     endif
   else
     " Those var are set the first time you run your tests

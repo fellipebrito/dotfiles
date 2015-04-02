@@ -37,12 +37,12 @@ fi
 export GREP_OPTIONS='--color=auto'
 
 # alias
-alias bi='rm Gemfile.lock;bundle install'
+alias bi='bundle install'
 alias dotfiles='vim /home/vagrant/.bashrc'
 alias c='cd'
 alias cpcov='rm -rf /vagrant/coverage/;cp -R coverage/ /vagrant/coverage'
 alias ..='cd ..'
-alias f='foreman start -p 3000'
+alias f='foreman start local'
 alias fuck='sudo $(history -p \!\!)'
 alias g='git '
 alias gad='g add .'
@@ -57,7 +57,9 @@ alias gpu='g pull'
 alias gsu='g pull && git submodule init && git submodule update --remote'
 alias l='ls -lFhG --color'
 alias la='ls -laFhG --color'
+alias lr='lein repl'
 alias pg='psql -h localhost -U root -W '
+alias p='pwd'
 alias rc='rails console'
 alias rk='rake '
 alias rkm='rk db:migrate'
@@ -83,6 +85,8 @@ alias vpro='vagrant reload --provision'
 alias vup='vagrant up'
 alias vs='vagrant ssh'
 alias www='cd ~/www'
+alias whoami='echo "Who is anyone?"'
+alias whoareyou='echo "I am Batman"'
 
 ### Default ps1 with colors:
 ### user@host path$
@@ -104,7 +108,11 @@ function hasta_la_vista() {
   fi
 }
 
-curl http://cowsay.me/
+# curl http://cowsay.me/
+export CLOJURESCRIPT_HOME=/lib/clojurescript
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NVM_DIR="/home/vagrant/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

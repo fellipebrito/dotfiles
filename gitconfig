@@ -27,6 +27,7 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = /Users/brito/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -35,3 +36,6 @@
   trustExitCode = true
 [push]
 	default = matching
+[user]
+	email = fellipe@devlandia.net
+	name = Fellipe Brito
