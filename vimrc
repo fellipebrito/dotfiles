@@ -62,6 +62,8 @@ set novisualbell                        " turn off visual bell
 set backspace=indent,eol,start          " make that backspace key work the way it should
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" 80 Column Marker
+set colorcolumn=81
 
 " Paste Toggle
 nnoremap <F8> :set invpaste paste?<CR>
@@ -163,7 +165,7 @@ function! RunCurrentTest()
       call SetTestRunner("cucumber")
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("rspec --color --format documentation")
+      call SetTestRunner("bundle exec rspec --color --format documentation")
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '\.clj$') != -1
       exec '!clear && lein test'
@@ -187,7 +189,7 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  exec "!clear && rspec --color --format documentation " g:bjo_test_file . ":" . g:bjo_test_file_line
+  exec "!clear && bundle exec rspec --color --format documentation " g:bjo_test_file . ":" . g:bjo_test_file_line
 endfunction
 
 function! SetTestFile()
