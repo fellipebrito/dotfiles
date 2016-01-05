@@ -31,8 +31,8 @@ fi
 # source ~/.bashrc_includes/*
 
 # tell ls to be colourful
-# export CLICOLOR=1
-# export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export CLICOLOR=1
+
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
@@ -40,7 +40,6 @@ export GREP_OPTIONS='--color=auto'
 alias bi='bundle install'
 alias dotfiles='vim /home/vagrant/.bashrc'
 alias c='cd'
-alias cpcov='rm -rf /vagrant/coverage/;cp -R coverage/ /vagrant/coverage'
 alias ..='cd ..'
 alias f='foreman start local'
 alias fuck='sudo $(history -p \!\!)'
@@ -72,8 +71,7 @@ alias rubsimple='rubocop --format simple'
 alias rsdoc='rspec spec --format documentation --order default'
 alias rshtml='rspec --format h > /vagrant/output.html'
 alias reload='source ~/.bashrc'
-# alias rspec='rspec;cpcov'
-alias cucumber='cucumber;cpcov'
+alias cucumber='cucumber'
 alias test='rspec;cucumber'
 alias tr='tree -P "*.rb" -I "assets|views|mailers|coverage" app'
 alias u='cd ~'
@@ -100,7 +98,6 @@ PS1='[\W/\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
 #source ~/.bash_profile
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
-
 
 function hasta_la_vista() {
   sudo killall -9 $1 2>/dev/null;
