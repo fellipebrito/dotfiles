@@ -165,7 +165,7 @@ function! RunCurrentTest()
       call SetTestRunner("cucumber")
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("bundle exec rspec --color --format documentation")
+      call SetTestRunner("rspec")
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '\.clj$') != -1
       exec '!clear && lein test'
@@ -189,7 +189,7 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  exec "!clear && bundle exec rspec --color --format documentation " g:bjo_test_file . ":" . g:bjo_test_file_line
+  exec "!clear && rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
 endfunction
 
 function! SetTestFile()

@@ -1,4 +1,5 @@
 --colour
 --order random
---profile 5
+--fail-fast
+--profile 1
 --format documentation
