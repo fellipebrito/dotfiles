@@ -166,7 +166,7 @@ function! RunCurrentTest()
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
       call SetTestRunner("rspec")
-      exec '!clear &&' g:bjo_test_runner g:bjo_test_file
+      exec ':Dispatch ' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '\.clj$') != -1
       exec '!clear && lein test'
     endif
@@ -189,7 +189,7 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  exec "!clear && rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
+  exec ":Dispatch rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
 endfunction
 
 function! SetTestFile()
