@@ -29,8 +29,7 @@ Bundle 'tpope/vim-leiningen'
 Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fireplace'
-
-
+Bundle 'SirVer/ultisnips'
 
 " ========================================================================
 " set vim config stuff
@@ -110,7 +109,7 @@ let mapleader = " "
 map <Leader>q :q<CR>
 
 " my frequently edited files
-map <Leader>vim :sp ~/.dotfiles/vimrc<cr>
+map <Leader>vim :vsplit ~/.dotfiles/vimrc<cr>
 
 " clojure koans
 map <Leader>cc :!lein koan run<cr>
@@ -152,6 +151,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:ctrlp_user_command = 'find %s -type f'
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff - Thanks r00
