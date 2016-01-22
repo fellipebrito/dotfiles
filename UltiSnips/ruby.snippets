@@ -1,0 +1,41 @@
+## RUBY
+snippet cl
+class $1
+
+	def $2
+	end
+end
+endsnippet
+
+snippet def
+def $1
+	$0
+end
+endsnippet
+
+## RSPEC
+snippet req
+require '$1'
+endsnippet
+
+snippet desc
+RSpec.describe $1 do
+	$0
+end
+endsnippet
+
+snippet cont
+context '$1' do
+	$0
+end
+endsnippet
+
+snippet it
+it '$1' do
+	$0
+end
+endsnippet
+
+snippet xp
+expect($1).to $0
+endsnippet
