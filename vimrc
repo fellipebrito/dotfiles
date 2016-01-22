@@ -132,7 +132,7 @@ map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>T :w<cr>:call RunCurrentLineInTest()<CR>
 
 " Dash / Documentation
-map <Leader>D :!open dash://
+map <Leader>D :Dispatch search_on_dash.sh <C-r>"<CR>
 map <Leader>mk :set syntax=markdown<CR>
 
 " Matrix / Cat
@@ -140,7 +140,7 @@ map <Leader>mm :Matrix<cr>
 map <Leader>nc :Nyancat2<cr>
 
 " Search
-map <Leader>bs :!browser_search.sh <C-r>"<CR>
+map <Leader>bs :Dispatch browser_search.sh <C-r>"<CR>
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -154,6 +154,8 @@ let g:ctrlp_user_command = 'find %s -type f'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger=";;"
+let g:UltiSnipsJumpBackwardTrigger=";l"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff - Thanks r00
@@ -168,7 +170,8 @@ function! RunCurrentTest()
       exec '!clear &&' g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
       call SetTestRunner("rspec")
-      exec ':Dispatch ' g:bjo_test_runner g:bjo_test_file
+      " exec ':Dispatch ' g:bjo_test_runner g:bjo_test_file
+      exec ":Dispatch! tmux send-keys -t right 'rspec" g:bjo_test_file . "' Enter"
     elseif match(expand('%'), '\.clj$') != -1
       exec '!clear && lein test'
     endif
@@ -177,7 +180,8 @@ function! RunCurrentTest()
     " once you already ran your tests, you can move to the
     " code file, and keep running the tests that are already
     " saved in the session
-    exec '!clear && ' g:bjo_test_runner g:bjo_test_file
+    " exec '!clear && ' g:bjo_test_runner g:bjo_test_file
+    exec ":Dispatch! tmux send-keys -t right 'rspec" g:bjo_test_file . "' Enter"
   endif
 endfunction
 
@@ -191,7 +195,8 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  exec ":Dispatch rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
+  " exec ":Dispatch 'rspec" g:bjo_test_file . ":" . g:bjo_test_file_line . "' Enter"
+  exec ":Dispatch! tmux send-keys -t right 'rspec" g:bjo_test_file . ":" . g:bjo_test_file_line . "' Enter"
 endfunction
 
 function! SetTestFile()
