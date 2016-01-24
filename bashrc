@@ -88,6 +88,9 @@ alias www='cd ~/www'
 alias whoami='echo "Who is anyone?"'
 alias whoareyou='echo "I am Batman"'
 
+# Workflow Path
+CDPATH=($HOME/www)
+
 ### Default ps1 with colors:
 ### user@host path$
 export GIT_PS1_SHOWDIRTYSTATE=true
