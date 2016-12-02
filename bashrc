@@ -1,6 +1,6 @@
-export RACK_ENV="development"
-export MYSQL_USER=root
-export MYSQL_PASSWORD=root
+#export RACK_ENV="development"
+export RACK_ENV="test"
+source ~/.git-prompt.sh
 
 # colors
 [ -z "$TMUX" ] && export TERM=xterm-256color
@@ -55,8 +55,8 @@ alias gps='g push'
 alias gpsjekyll="jekyll build;cd _site/;gad;gcm 'update';gps;cd ..;gad;gcm 'update submodule'; gps;"
 alias gpu='g pull'
 alias gsu='g pull && git submodule init && git submodule update --remote'
-alias l='ls -lFhG --color'
-alias la='ls -laFhG --color'
+alias l='ls -lFhG'
+alias la='ls -laFhG'
 alias lr='lein repl'
 alias lk='echo "Displaying in less pager..." && lein do kibit, cloverage, bikeshed, eastwood  | less'
 alias pg='psql -h localhost -U root -W '
@@ -71,8 +71,8 @@ alias rubsimple='rubocop --format simple'
 alias rsdoc='rspec spec --format documentation --order default'
 alias rshtml='rspec --format h > /vagrant/output.html'
 alias reload='source ~/.bashrc'
-alias cucumber='cucumber'
-alias test='rspec;cucumber'
+#alias cucumber='cucumber'
+#alias test='rspec;cucumber'
 alias tr='tree -P "*.rb" -I "assets|views|mailers|coverage" app'
 alias u='cd ~'
 alias ta='tmux attach-session -t '
