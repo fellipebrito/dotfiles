@@ -2,35 +2,6 @@ scriptencoding utf-8
 set encoding=utf-8
 
 execute pathogen#infect()
-" ========================================================================
-" Vundle stuff
-" ========================================================================
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
-
-" Let Vundle manage Vundle (required)!
-" Bundle 'gmarik/vundle'
-
-" My bundles
-" Bundle 'ervandew/supertab'
-" Bundle 'tomtom/tcomment_vim'
-" Bundle 'tpope/vim-endwise'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'tpope/vim-surround'
-" Bundle 'tpope/vim-rails'
-" Bundle 'vim-ruby/vim-ruby'
-" Bundle 'wincent/Command-T'
-" Bundle 'koron/nyancat-vim'
-" Bundle 'uguu-org/vim-matrix-screensaver'
-" Bundle 'kien/ctrlp.vim'
-" Bundle 'slim-template/vim-slim'
-" Bundle 'mustache/vim-mustache-handlebars'
-" Bundle 'kien/rainbow_parentheses.vim'
-" Bundle 'tpope/vim-leiningen'
-" Bundle 'tpope/vim-projectionist'
-" Bundle 'tpope/vim-dispatch'
-" Bundle 'tpope/vim-fireplace'
-" Bundle 'SirVer/ultisnips'
 
 " ========================================================================
 " set vim config stuff
