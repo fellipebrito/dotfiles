@@ -13,4 +13,10 @@ These are config files to set up a system the way I like it.
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   Run :BundleInstall in vim.
 
+== Problems
+
+(Mac) -bash: __git_ps1: command not found
+  Yes, you will gonna face this problem, and here is how to fix it:
+  http://stackoverflow.com/a/12871094
+
 This repo is inspired in r00k's repo
