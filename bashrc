@@ -98,7 +98,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 PS1='[\W/\[\033[0;37m\]$(__git_ps1 " (%s)")\[\033[0;12m\]]\$ '
 
 #source ~/.bash_profile
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin # Add RVM to PATH for scripting
 export rvmsudo_secure_path=1
 
 function hasta_la_vista() {
@@ -117,3 +117,16 @@ export PATH="/home/vagrant/dotfiles/bin:/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+hfavpn ()
+{
+    host=${2:-'https://vpn.harryfox.com'}
+    group=${3:-'HFAVPN'}
+    user=${4:-'fbrito'}
+    echo "$1" | \
+    sudo openconnect \
+         --user="$user" \
+         --passwd-on-stdin \
+         --authgroup="$group" \
+         "$host"
+}

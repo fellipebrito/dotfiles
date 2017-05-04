@@ -32,6 +32,11 @@ set visualbell t_vb=                    " turn off error beep/flash
 set novisualbell                        " turn off visual bell
 set backspace=indent,eol,start          " make that backspace key work the way it should
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set path+=**
+set wildmenu
+
+syntax on
+filetype plugin indent on               " Enable filetype-specific indenting and plugins
 
 " 80 Column Marker
 set colorcolumn=81
@@ -42,12 +47,6 @@ set pastetoggle=<F8>
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-
-" ================
-" Ruby stuff
-" ================
-syntax on
-filetype plugin indent on               " Enable filetype-specific indenting and plugins
 
 " Complain about whitespaces on the end of file
 :highlight ExtraWhitespace ctermbg=red guibg=red
@@ -179,6 +178,14 @@ function! SetTestFileWithLine()
   let g:bjo_test_file=@%
   let g:bjo_test_file_line=line(".")
 endfunction
+
+let g:BibleTranslation = "ESV"
+let g:BibleFormat = "\\3. \\4"
+let g:BibleLocale = "en"
+let g:BibleOmitModuleName = 0
+
+nnoremap <leader>b y :call Bible()<CR>
+vnoremap <leader>b y :call Bible(@*)<CR> "Use selection as query
 
 "
 " let g:rbpt_colorpairs = [
