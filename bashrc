@@ -1,6 +1,7 @@
 #export RACK_ENV="development"
 export RACK_ENV="test"
 source ~/.git-prompt.sh
+source "$(brew --prefix)/etc/bash_completion"
 
 # colors
 [ -z "$TMUX" ] && export TERM=xterm-256color
