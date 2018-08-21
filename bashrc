@@ -56,6 +56,7 @@ alias gps='g push'
 alias gpsjekyll="jekyll build;cd _site/;gad;gcm 'update';gps;cd ..;gad;gcm 'update submodule'; gps;"
 alias gpu='g pull'
 alias gsu='g pull && git submodule init && git submodule update --remote'
+alias gsa='g submodule add'
 alias l='ls -lFhG'
 alias la='ls -laFhG'
 alias lr='lein repl'
