@@ -39,7 +39,7 @@ export GREP_OPTIONS='--color=auto'
 
 # alias
 alias bi='bundle install'
-alias dotfiles='vim /home/vagrant/.bashrc'
+alias bashrc='vim ~/.bashrc'
 alias c='cd'
 alias ..='cd ..'
 alias f='foreman start local'
@@ -63,6 +63,7 @@ alias lr='lein repl'
 alias lk='echo "Displaying in less pager..." && lein do kibit, cloverage, bikeshed, eastwood  | less'
 alias pg='psql -h localhost -U root -W '
 alias p='pwd'
+alias pip='pip3'
 alias rc='rails console'
 alias rk='rake '
 alias rkm='rk db:migrate'
@@ -86,7 +87,7 @@ alias vrl='vagrant reload'
 alias vpro='vagrant reload --provision'
 alias vup='vagrant up'
 alias vs='vagrant ssh'
-alias www='cd ~/www'
+alias sandbox='cd ~/sandbox'
 alias whoami='echo "Who is anyone?"'
 alias whoareyou='echo "I am Batman"'
 
@@ -124,4 +125,10 @@ export NVM_DIR="/home/vagrant/.nvm"
 sesacvpn ()
 {
   printf "%s\n%s\n%s" $VPN_GROUP $VPN_USER $VPN_PASS | vpn connect $VPN_HOST
+}
+
+samba(){
+  command_text="token=$1&team_id=T0001&team_domain=example&channel_id=C2147483705&channel_name=test&user_id=U2147483697&user_name=Rocky&command=/$2&text=$3&response_url=https://hooks.slack.com/commands/1234/5678"
+
+  docker run --rm -e hfa_prod_user=$HFA_PROD_USER -e hfa_prod_password=$HFA_PROD_PASS -v "$PWD":/var/task lambci/lambda:python3.6 app.lambda_handler "{\"body\": \"$command_text\"}"
 }
