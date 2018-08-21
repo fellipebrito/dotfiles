@@ -80,6 +80,7 @@ alias ta='tmux attach-session -t '
 alias tls='tmux ls'
 alias tn='tmux new -s '
 alias todo='vim /vagrant/TODO'
+alias vpn='/opt/cisco/anyconnect/bin/vpn -s '
 alias vrl='vagrant reload'
 alias vpro='vagrant reload --provision'
 alias vup='vagrant up'
@@ -121,5 +122,5 @@ export NVM_DIR="/home/vagrant/.nvm"
 
 sesacvpn ()
 {
-  printf "%s\n%s\n%s" $VPN_GROUP $VPN_USER $VPN_PASS | /opt/cisco/anyconnect/bin/vpn -s connect $VPN_HOST
+  printf "%s\n%s\n%s" $VPN_GROUP $VPN_USER $VPN_PASS | vpn connect $VPN_HOST
 }
