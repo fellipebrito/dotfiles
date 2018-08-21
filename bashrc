@@ -1,7 +1,7 @@
 #export RACK_ENV="development"
 export RACK_ENV="test"
 source ~/.git-prompt.sh
-source "$(brew --prefix)/etc/bash_completion"
+#source "$(brew --prefix)/etc/bash_completion"
 
 # colors
 [ -z "$TMUX" ] && export TERM=xterm-256color
@@ -71,7 +71,7 @@ alias rub='rubocop'
 alias rubsimple='rubocop --format simple'
 alias rsdoc='rspec spec --format documentation --order default'
 alias rshtml='rspec --format h > /vagrant/output.html'
-alias reload='source ~/.bashrc'
+alias reload='source ~/.bash_profile'
 #alias cucumber='cucumber'
 #alias test='rspec;cucumber'
 alias tr='tree -P "*.rb" -I "assets|views|mailers|coverage" app'
@@ -119,15 +119,7 @@ export PATH="/home/vagrant/dotfiles/bin:/usr/local/heroku/bin:$PATH"
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-hfavpn ()
+sesacvpn ()
 {
-    host=${2:-'https://vpn.harryfox.com'}
-    group=${3:-'HFAVPN'}
-    user=${4:-'fbrito'}
-    echo "$1" | \
-    sudo openconnect \
-         --user="$user" \
-         --passwd-on-stdin \
-         --authgroup="$group" \
-         "$host"
+  printf "%s\n%s\n%s" $VPN_GROUP $VPN_USER $VPN_PASS | /opt/cisco/anyconnect/bin/vpn -s connect $VPN_HOST
 }
