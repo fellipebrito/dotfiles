@@ -34,6 +34,7 @@ set backspace=indent,eol,start          " make that backspace key work the way i
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set path+=**
 set wildmenu
+autocmd vimenter * NERDTree
 
 syntax on
 filetype plugin indent on               " Enable filetype-specific indenting and plugins
@@ -101,6 +102,11 @@ map <Leader>rub :!rubocop %<cr>
 map <Leader>auto :!rubocop -a %<cr>
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>T :w<cr>:call RunCurrentLineInTest()<CR>
+
+" Tests and StyleGuides / PYTHON
+map <Leader>ps :w<cr> :!pycodestyle %<cr>
+map <Leader>pt :w<cr> :!pytest %<cr>
+map <Leader>ppt :w<cr> :!pytest functions<cr>
 
 " Dash / Documentation
 map <Leader>D :Dispatch search_on_dash.sh <C-r>"<CR>

@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/matrix/www/personal/tic-tac-toe/src/tic_tac_toe'
 let g:netrw_dirhist_2='/Users/matrix/www/personal/fellipebrito.github.io.builder/_posts'
+let g:netrw_dirhist_3='/Users/brito/sandbox/sesac/deployable-lambda/.venv'

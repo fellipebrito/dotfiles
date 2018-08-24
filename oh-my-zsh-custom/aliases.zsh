@@ -16,3 +16,12 @@ alias zshconfig="vim ~/.zshrc"
 alias zc="zshconfig"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias aliases="vim ~/.oh-my-zsh-custom/aliases.zsh"
+
+alias vpn='/opt/cisco/anyconnect/bin/vpn -s'
+alias sesac-vpn='vpn connect vpn.sesac.com'
+
+alias dg='/usr/local/bin/datagrip'
+
+alias create_virtual_env='virtualenv venv --python=python3'
+alias pcompile='pip-compile --output-file requirements/requirements-dev.txt requirements/requirements-dev.in'
+alias pinstall='pip install -r requirements/requirements-dev.txt'

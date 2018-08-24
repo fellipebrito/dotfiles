@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/brito/Library/Python/3.7/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/brito/.oh-my-zsh"
@@ -26,6 +27,7 @@ plugins=(
   brew
   osx
   extract
+  tmux
   z
 )
 
