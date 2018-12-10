@@ -25,3 +25,9 @@ alias dg='/usr/local/bin/datagrip'
 alias create_virtual_env='virtualenv venv --python=python3'
 alias pcompile='pip-compile --output-file requirements/requirements-dev.txt requirements/requirements-dev.in'
 alias pinstall='pip install -r requirements/requirements-dev.txt'
+
+alias post='curl -X POST'
+
+alias dup='docker-compose up -d'
+alias dstop='docker-compose stop'
+alias djb='docker-compose exec site jekyll build'
