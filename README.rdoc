@@ -10,6 +10,9 @@ These are config files to set up a system the way I like it.
 
   Vim plugins are managed through pathogen and they all are on the submodules.
 
+  Update submodules
+  `git submodule init && git submodule update`
+
 == Problems
 
 (Mac) -bash: __git_ps1: command not found

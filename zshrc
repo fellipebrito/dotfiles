@@ -3,8 +3,8 @@
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/brito/Library/Python/3.7/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/brito/.oh-my-zsh"
-export ZSH_CUSTOM="/Users/brito/.oh-my-zsh-custom"
+export ZSH="/Users/fellipebrito/.oh-my-zsh"
+export ZSH_CUSTOM="/Users/fellipebrito/.oh-my-zsh-custom"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
